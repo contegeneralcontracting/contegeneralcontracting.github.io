@@ -153,3 +153,115 @@ section h2 {
 
 /* FOOTER */
 footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+/* FLOATING CALL BUTTON */
+.call-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #c6a75e;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+@media(max-width: 900px) {
+    .image-block {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Conte GC</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#reviews">Reviews</a>
+        <a href="tel:9734621171">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Refined Construction. Elevated Living.</h1>
+        <p>Luxury renovations and professional contracting services throughout North Jersey and all of New Jersey.</p>
+        <a href="tel:9734621171" class="btn">Schedule a Consultation</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Our Company</h2>
+    <div class="image-block">
+        <img src="https://via.placeholder.com/600x400">
+        <p>
+        At Conte General Contracting LLC, every client is treated like family.
+        We combine thoughtful design, expert craftsmanship, and meticulous detail
+        to create homes that feel elevated, refined, and built to last.
+        Fully insured and proudly serving homeowners across New Jersey.
+        </p>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="image-block">
+        <img src="https://via.placeholder.com/600x400">
+        <img src="https://via.placeholder.com/600x400">
+    </div>
+</section>
+
+<section id="reviews" class="testimonial-section">
+    <h2>Client Experiences</h2>
+    <div class="testimonial show" id="testimonial-text"></div>
+    <div class="testimonial-author" id="testimonial-author"></div>
+</section>
+
+<footer>
+    <h2>Begin Your Project</h2>
+    <p>973-462-1171</p>
+    <p>North Jersey & All of New Jersey</p>
+</footer>
+
+<a href="tel:9734621171" class="call-button">Call Now</a>
+
+<script>
+// Rotating Testimonials
+const testimonials = [
+    { text: "Conte General Contracting exceeded all expectations. Exceptional craftsmanship.", author: "– Google Review" },
+    { text: "Professional, reliable, and detail-oriented. Our renovation looks amazing.", author: "– Google Review" },
+    { text: "From start to finish, the process was seamless. Highly recommend.", author: "– Google Review" }
+];
+
+let index = 0;
+const textEl = document.getElementById("testimonial-text");
+const authorEl = document.getElementById("testimonial-author");
+
+function rotateTestimonials() {
+    if (!textEl || !authorEl) return; // safe check
+    textEl.classList.remove("show");
+    setTimeout(() => {
+        textEl.innerText = testimonials[index].text;
+        authorEl.innerText = testimonials[index].author;
+        textEl.classList.add("show");
+        index = (index + 1) % testimonials.length;
+    }, 500);
+}
+
+rotateTestimonials();
+setInterval(rotateTestimonials, 6000);
+</script>
+
+</body>
+</html>
+
