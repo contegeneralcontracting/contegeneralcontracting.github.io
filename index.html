@@ -56,3 +56,177 @@ section {
 }
 
 .btn {
+    margin-top: 35px;
+    padding: 14px 34px;
+    border: 1px solid #c6a75e;
+    color: #111;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #c6a75e;
+    color: #fff;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.service-card {
+    padding: 30px;
+    border: 1px solid #eee;
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: #c6a75e;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.testimonial-section {
+    background: #f9f9f9;
+}
+
+.testimonial {
+    font-size: 22px;
+    font-weight: 300;
+    max-width: 800px;
+    margin: auto;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.testimonial.show {
+    opacity: 1;
+}
+
+.testimonial-author {
+    margin-top: 20px;
+    color: #c6a75e;
+    font-weight: 500;
+}
+
+footer {
+    background: #111;
+    color: #fff;
+    padding: 80px 20px;
+}
+
+footer h2 {
+    color: #fff;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>Conte General Contracting LLC</h1>
+    <div class="gold-line"></div>
+    <p>Elevated craftsmanship. Thoughtful design. Serving North Jersey & All of New Jersey.</p>
+    <a href="tel:9734621171" class="btn">Request a Consultation</a>
+</section>
+
+<section>
+    <h2>About Our Company</h2>
+    <div class="gold-line"></div>
+    <p>
+        At Conte General Contracting LLC, each customer is treated like family.
+        With quality service and unmatched care, we strive to deliver exceptional craftsmanship
+        across every renovation, installation, and project we complete.
+    </p>
+    <p><strong>Fully Insured • Serving All of New Jersey</strong></p>
+</section>
+
+<section>
+    <h2>Our Services</h2>
+    <div class="gold-line"></div>
+    <div class="services">
+        <div class="service-card"><h3>Heating & Cooling</h3></div>
+        <div class="service-card"><h3>Luxury Renovations</h3><p>Bathrooms • Kitchens • Whole Home</p></div>
+        <div class="service-card"><h3>Electrical</h3></div>
+        <div class="service-card"><h3>Plumbing</h3></div>
+        <div class="service-card"><h3>Masonry</h3></div>
+    </div>
+</section>
+
+<section>
+    <h2>Featured Projects</h2>
+    <div class="gold-line"></div>
+    <div class="gallery">
+        <img src="project1.jpg">
+        <img src="project2.jpg">
+        <img src="project3.jpg">
+        <img src="project4.jpg">
+        <img src="project5.jpg">
+    </div>
+</section>
+
+<section class="testimonial-section">
+    <h2>Client Experiences</h2>
+    <div class="gold-line"></div>
+    <div class="testimonial show" id="testimonial-text"></div>
+    <div class="testimonial-author" id="testimonial-author"></div>
+</section>
+
+<footer>
+    <h2>Begin Your Project</h2>
+    <div class="gold-line"></div>
+    <p>973-462-1171</p>
+    <p>North Jersey & All of New Jersey</p>
+</footer>
+
+<script>
+const testimonials = [
+    {
+        text: "Conte General Contracting exceeded every expectation. The quality and professionalism were unmatched.",
+        author: "– Client Review"
+    },
+    {
+        text: "Our renovation was seamless from start to finish. Detail-oriented and incredibly reliable.",
+        author: "– Client Review"
+    },
+    {
+        text: "They treated our home like their own. We couldn't be happier with the results.",
+        author: "– Client Review"
+    }
+];
+
+let index = 0;
+const textEl = document.getElementById("testimonial-text");
+const authorEl = document.getElementById("testimonial-author");
+
+function rotateTestimonials() {
+    textEl.classList.remove("show");
+    setTimeout(() => {
+        textEl.innerText = testimonials[index].text;
+        authorEl.innerText = testimonials[index].author;
+        textEl.classList.add("show");
+        index = (index + 1) % testimonials.length;
+    }, 500);
+}
+
+rotateTestimonials();
+setInterval(rotateTestimonials, 6000);
+</script>
+
+</body>
+</html>
